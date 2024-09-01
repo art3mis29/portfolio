@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Portfolio</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: limegreen;
+    font-size: 16px;
+  }
+  .terminal {
+    background: black;
+    padding: 20px;
+    border: solid 3px limegreen;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 800px;
+  }
+  #matrix {
+    color: limegreen;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .content {
+    z-index: 5;
+    position: relative;
+  }
+  h1, h2 {
+    border-bottom: 1px solid limegreen;
+  }
+</style>
+</head>
+<body>
+<div id="matrix"></div>
+<div class="terminal content">
+  <h1>About Me</h1>
+  <p>I am a dedicated Network and Desktop Administrator with a strong passion for technology and a robust foundation in both network and destkop administration. With hands-on experience at National beef Packing Company, I am skilled in ensuring seamless IT operations and enchancing system performance through regualr monitoring and strategic optimizations.
+  </p>
+  
+  <h2>Resume</h2>
+
+<p>Aimé Minga | Dodge City KS, United States | <a href="tel:+14753194171">(475) 319-4171</a> | <a href="mailto:aimebsc29@gmail.com">aimebsc29@gmail.com</a></p>
+<p><strong>Profile:</strong> Computer Science undergraduate specializing in Cyber Security, with a strong academic record and practical experience in network and desktop administration. Currently excelling in my degree at Lindenwood University, dedicated to securing digital landscapes.</p>
+
+<h3>Work Experience</h3>
+<p><strong>Network Administrator</strong><br>
+National Beef Packing Company LLC - Dodge City, Kansas (July 2024 – Present)</p>
+<ul>
+  <li>Configured and maintained critical network infrastructure, ensuring optimal performance and reliability across servers and workstations.</li>
+  <li>Diagnosed and resolved complex network issues, significantly reducing downtime and enhancing system availability.</li>
+  <li>Implemented robust network security measures, including managing firewalls and antivirus protocols.</li>
+  <li>Monitored network performance regularly, proactively identifying and addressing potential issues.</li>
+  <li>Developed and enforced effective data backup strategies, ensuring quick data recovery in case of system failures.</li>
+</ul>
+
+<p><strong>Desktop Administrator</strong><br>
+National Beef Packing Company LLC - Dodge City, Kansas (June 2024 – Present)</p>
+<ul>
+  <li>Configured and managed network settings, including VLANs and trunk ports.</li>
+  <li>Provided comprehensive desktop support to end-users.</li>
+  <li>Implemented and monitored security measures to safeguard network infrastructure.</li>
+</ul>
+
+<p><strong>Bay Attendant</strong><br>
+Blue Beacon Truck Washes - Kansas (06/2023 – 08/2023)</p>
+<ul>
+  <li>Collaborated with team members to ensure smooth operations at the truck wash facility.</li>
+  <li>Adhered to safety protocols and maintained a safe working environment.</li>
+  <li>Greeted and assisted truck drivers, ensuring a positive customer experience.</li>
+</ul>
+
+<h3>Education</h3>
+<p><strong>Cyber Security | Computer Science BS</strong><br>
+Lindenwood University, St. Charles, MO (08/2023 – 05/2027)</p>
+<ul>
+  <li>Achieved Dean's List recognition for Fall 2023 & Spring 2024.</li>
+</ul>
+<p><strong>High School Diploma</strong><br>
+Dodge City High School - Graduated May 2023</p>
+
+</div>
+
+<script>
+  // Matrix effect background
+  const canvas = document.createElement('canvas');
+  document.getElementById('matrix').appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const w = canvas.width;
+  const h = canvas.height;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, w, h);
+  const cols = Math.floor(w / 20) + 1;
+  const ypos = Array(cols).fill(0);
+
+  function matrix() {
+    ctx.fillStyle = '#0001';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#0f0';
+    ctx.font = '15pt monospace';
+
+    ypos.forEach((y, ind) => {
+      const text = String.fromCharCode(Math.random() * 128);
+      const x = ind * 20;
+      ctx.fillText(text, x, y);
+      if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
+      else ypos[ind] = y + 20;
+    });
+  }
+  setInterval(matrix, 50);
+</script>
+</body>
+</html>
